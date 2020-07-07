@@ -1,0 +1,29 @@
+
+<script>
+  function myController($scope){
+    $scope.changeF = function (song) {
+      song[favourite] = !song[favourite];
+      console.log(song[favourite]);
+    };
+    $scope.changeL = function (song) {
+      song[listened] = !song[listened];
+    };
+  } 
+
+</script>
+<table id="songs">
+  <tr>
+    <th *ngFor="let col of columns">
+      {{col}}
+    </th>
+  </tr>
+
+  <tr *ngFor="let song of songs">
+    <td *ngFor="let col of index">
+      <button ng-click="changeF(song)">Favourite</button>
+      <button ng-click="changeL(song)">Listened</button>
+      {{song[col]}}
+    </td>
+  </tr>
+</table>
+
